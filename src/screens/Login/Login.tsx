@@ -10,7 +10,7 @@ import {
 } from '@ui-kitten/components';
 import {ScrollView} from 'react-native-gesture-handler';
 import {CloseIcon} from '@components/Icons';
-import {useNavigation} from '@react-navigation/native';
+import {StackActions, useNavigation} from '@react-navigation/native';
 
 interface RenderRightActionsProps {
     onClose?: () => void;
@@ -33,13 +33,13 @@ const RenderRightActions = ({onClose}: RenderRightActionsProps) => {
 export const Login = () => {
     const navigation = useNavigation();
     const handleSignInSuccess = () => {
-        navigation.pop();
+        navigation.dispatch(StackActions.pop());
     };
 
     const handleSignInFail = () => {};
 
     const handleClose = () => {
-        navigation.pop();
+        navigation.dispatch(StackActions.pop());
     };
 
     return (
